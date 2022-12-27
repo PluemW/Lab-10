@@ -3,9 +3,11 @@
 using namespace std;
 
 int main(){	
-	cout << "Enter initial loan: ";
-	cout << "Enter interest rate per year (%): ";
-	cout << "Enter amount you can pay per year: ";
+	int y=1;
+	double l, r, p;
+	cout << "Enter initial loan: ";	cin>>l;
+	cout << "Enter interest rate per year (%): "; cin>>r;
+	cout << "Enter amount you can pay per year: "; cin>>p; 
 
 	//use 'setw' to set width of table and 'left' to set left-alignment
 	//you can change input argument of 'setw()' to see the effect
@@ -20,14 +22,24 @@ int main(){
 	
 	//use 'fixed' and 'setprecision' to fix the number of decimal digits for displaying
 	//you can change input argument of 'setprecision()' to see the effect
+	while(l>0){
 	cout << fixed << setprecision(2); 
-	cout << setw(13) << left << 1; 
-	cout << setw(13) << left << 1000.0;
-	cout << setw(13) << left << 50.0;
-	cout << setw(13) << left << 1050.0;
-	cout << setw(13) << left << 100.0;
-	cout << setw(13) << left << 950.0;
+	cout << setw(13) << left << y; 
+	cout << setw(13) << left << l;
+	cout << setw(13) << left << l*(r/100.0);
+	cout << setw(13) << left << l+(l*(r/100.0));
+	if(p<l+(l*(r/100.0))){
+	cout << setw(13) << left << p;
+	cout << setw(13) << left << (l+(l*(r/100.0)))-p;
+	l = (l+(l*(r/100.0)))-p;
+	}else{
+	p = l+(l*(r/100.0));
+	cout << setw(13) << left << p;
+	cout << setw(13) << left << (l+(l*(r/100.0)))-p;
+	l = (l+(l*(r/100.0)))-p;
+	}
 	cout << "\n";	
-	
+	y++;
+	}
 	return 0;
 }

@@ -1,7 +1,24 @@
 #include<iostream>
 using namespace std;
 
-//Write the function printO() here
+int printO(int n, int m){
+    do{
+    int count = 0;
+    if(n<=0 || m<=0){
+    cout <<"Invalid input";
+    break;
+    }
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            cout << 'O';
+        }
+        cout<<"\n";
+        count++;
+    }
+    if(count==n)break;
+    }while(true);
+    return 0;
+}
 
 int main(){
 	
